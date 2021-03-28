@@ -45,7 +45,7 @@ class Database:
         return table_data
 
 if __name__=="__main__":
-    table_data=Database("AUDIOBOOK")
+    table_data=Database("SONG")
     table_data.list_tables()
-    data=table_data.get_table_data("AUDIOBOOK")
+    data=table_data.get_table_data("SONG")
     print(data)
