@@ -147,6 +147,73 @@ def update(audioFileType,audioFileID):
     return jsonify("Action is successful: 200 OK"),200
 
 
+@app.route("/get/<audioFileType>/<audioFileID>",methods=["GET","POST"])
+@app.route("/get/<audioFileType>/",defaults={"audioFileID":None},methods=["GET","POST"])
+def get(audioFileType,audioFileID):
+    with sqlite3.connect('database.db') as con:
+
+        cursor=con.cursor()
+
+        if request.method=="POST":
+            if audioFileID!=None:
+                id=int(audioFileID)
+
+            else:
+                id=audioFileID
+
+            if id==None and audioFileType=='song':
+                cursor.execute(
+                    "SELECT * FROM SONG")
+
+                table_data=cursor.fetchall()
+
+                cursor.close()
+
+            elif id==None and audioFileType=="podcast":
+                cursor.execute(
+                    "SELECT * FROM PODCAST")
+
+                table_data=cursor.fetchall()
+
+                cursor.close()
+            elif id==None and audioFileType=="audiobook":
+
+                cursor.execute(
+                    "SELECT * FROM AUDIOBOOK")
+
+                table_data=cursor.fetchall()
+
+                cursor.close()
+
+            if id!=None and audioFileType=="song":
+
+                cursor.execute(
+                    "SELECT * FROM SONG WHERE ID=(?)",
+                    (id,)
+                )
+                table_data=cursor.fetchall()
+
+                cursor.close()
+
+            elif id!=None and audioFileType=="podcast":
+                cursor.execute(
+                    "SELECT * FROM PODCAST WHERE ID=(?)",
+                    (id,)
+                )
+                table_data=cursor.fetchall()
+
+                cursor.close()
+
+            elif id!=None and audioFileType=="audiobook":
+                cursor.execute(
+                    "SELECT * FROM AUDIOBOOK WHERE ID=(?)",
+                    (id,)
+                )
+                table_data=cursor.fetchall()
+
+                cursor.close()
+
+    return jsonify(table_data)
+
 if __name__=="__main__":
     app.run(debug=True)
-
