@@ -29,7 +29,7 @@ curl -X POST -H "Content-Type: application/json"  http://127.0.0.1:5000/get/song
 
 # Instruction for Testing the Table
 
-1.To get all the records from the specific table enter the following command in the terminal ```python3 sqlite.py song```
+1.To get all the records from the specific table for example "SONG" enter the following command in the terminal ```python3 sqlite.py song```
 
 2.To list all the table names in the database enter the following command in the terminal ```python3 sqlite.py```
 
