@@ -1,5 +1,6 @@
 import sqlite3
 import pandas as pd
+import sys
 
 class Database:
 
@@ -45,7 +46,13 @@ class Database:
         return table_data
 
 if __name__=="__main__":
-    table_data=Database("SONG")
-    table_data.list_tables()
-    data=table_data.get_table_data("SONG")
-    print(data)
+    if len(sys.argv)==1:
+        table_data=Database()
+        tables=table_data.list_tables()
+        print(tables)
+
+    else:
+        table_name_arg=sys.argv[1]
+        table_data=Database(str(table_name_arg).upper())
+        data=table_data.get_table_data(str(table_name_arg).upper())
+        print(data)

@@ -12,8 +12,6 @@ table=Database()
 
 table.create_table()
 
-# table_names, table_information = list_tables()
-
 @app.route("/create",methods=['GET','POST'])
 def create():
 
@@ -213,7 +211,7 @@ def get(audioFileType,audioFileID):
 
                 cursor.close()
 
-    return jsonify(table_data)
+    return jsonify(table_data),200
 
 if __name__=="__main__":
     app.run(debug=True)
