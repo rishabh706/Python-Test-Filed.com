@@ -20,12 +20,13 @@
 6.To delete data from the table enter the following command in the terminal ```curl -X POST -H  http://127.0.0.1:5000/delete/song/1```
 
 
-7.To get data from table enter the following commands ```
-
+7.To get data from table enter the following commands
+ 
+```
 curl -X POST -H "Content-Type: application/json"  http://127.0.0.1:5000/get/song/
 curl -X POST -H "Content-Type: application/json"  http://127.0.0.1:5000/get/song/1
-
 ```
+
 
 
 # Instruction for Testing the Table
