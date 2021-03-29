@@ -5,7 +5,7 @@
 1. clone the respository using ```git clone https://github.com/rishabh706/Python-Test-Filed.com.git```
 
 
-2. cd Python-Test-Filed.com
+2. cd ```Python-Test-Filed.com```
 
 
 3. Start the Flask server using ```python3 app.py```
